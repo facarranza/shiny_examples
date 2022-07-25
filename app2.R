@@ -6,14 +6,16 @@ ui <- fluidPage(
   tableOutput("table")
 )
 server <- function(input, output, session) {
+  dataset <- reactive({
+    get(input$dataset, "package:datasets")
+    })
+
   output$summary <- renderPrint({
-    dataset <- get(input$dataset, "package:datasets")
-    summary(dataset)
+    summary(dataset())
   })
 
   output$table <- renderTable({
-    dataset <- get(input$dataset, "package:datasets")
-    dataset
+    dataset()
   })
 }
 # server <- function(input, output, session) {
