@@ -3,7 +3,15 @@ library(shiny)
 ui <- fluidPage(
   selectInput("dataset", label = "Dataset", choices = ls("package:datasets")),
   verbatimTextOutput("summary"),
-  tableOutput("table")
+  tableOutput("table"),
+  sliderInput("min","limit(minimun", value=50, min=0, max=100),
+  textInput("name","whatś your name?"),
+  passwordInput("password", "whats your password?"),
+  textAreaInput("story", "tell me about"),
+  numericInput("num", "Number One", value=0, min=0, max=100),
+  sliderInput("rng", "range", value = c(10,20), min=0, max=100)
+
+
 )
 server <- function(input, output, session) {
   dataset <- reactive({
