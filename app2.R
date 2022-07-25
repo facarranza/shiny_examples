@@ -9,7 +9,10 @@ ui <- fluidPage(
   passwordInput("password", "whats your password?"),
   textAreaInput("story", "tell me about"),
   numericInput("num", "Number One", value=0, min=0, max=100),
-  sliderInput("rng", "range", value = c(10,20), min=0, max=100)
+  sliderInput("rng", "range", value = c(10,20), min=0, max=100),
+  dateInput("dob", "When were you born?"),
+  dateRangeInput("holiday", "When do you want to go on vacation next?")
+
 
 
 )
